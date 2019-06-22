@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     Button mb_lotate_left;
     Button mb_lotate_right;
     Button mb_go_backward;
+    Button mb_conn_dialog;
 
     private static final String TAG = "RaspberryPiCamera";
     private final String STREAM_URL = "http://192.168.11.9:8080/?action=stream";
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         mb_lotate_left = (Button)findViewById(R.id.button_lotate_left);
         mb_lotate_right = (Button)findViewById(R.id.button_lotate_right);
         mb_go_backward = (Button)findViewById(R.id.button_go_backward);
+        mb_conn_dialog = (Button)findViewById(R.id.button_conn_dialog);
         final MainActivity mainActivity = this;
         mb_go_forward.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -134,12 +136,21 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        mb_conn_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View view) {
+                ConnectionDialogFragment dialog = new ConnectionDialogFragment();
+                dialog.show(getFragmentManager(), "ConnectionDialog");
+            }
+        });
     }
+
     @Override
     public void onResume() {
         super.onResume();
         loadIpCam();
     }
+
     private void loadIpCam() {
         final MainActivity mainActivity = this;
         Log.d(TAG, "Connecting");
