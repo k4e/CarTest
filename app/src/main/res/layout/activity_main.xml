@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    xmlns:stream="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteY="19dp">
+
+        <TextView
+            android:id="@+id/text_view_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_vertical" />
+        <!-- ↓MjpegSurfaceViewの追加 -->
+        <com.github.niqdev.mjpeg.MjpegSurfaceView
+            android:id="@+id/mjpeg_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            stream:type="stream_default" />
+        <Button
+            android:id="@+id/button_go_forward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="前進" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_lotate_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="左回転" />
+
+            <Button
+                android:id="@+id/button_lotate_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="右回転" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_go_backward"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="後退" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
